@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/coursereg
+    username: dev
+    password: dev
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  flyway:
+    enabled: false
+
+  security:
+    user:
+      name: admin
+      password: admin123
+
+server:
+  port: 8080

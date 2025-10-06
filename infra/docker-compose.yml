@@ -1,0 +1,15 @@
+# infra/docker-compose.yml
+services:
+  db:
+    image: postgres:15
+    container_name: infra-db-1
+    environment:
+      POSTGRES_DB: coursereg
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+    ports:
+      - "5433:5432"  # host:container
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
