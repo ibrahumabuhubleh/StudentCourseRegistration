@@ -1,6 +1,5 @@
 package com.example.coursereg.web;
 
-import com.example.coursereg.domain.Enrollment;
 import com.example.coursereg.domain.Student;
 import com.example.coursereg.service.StudentService;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,6 @@
 package com.example.coursereg.service;
 
 import com.example.coursereg.domain.Course;
-import com.example.coursereg.domain.Enrollment;
 import com.example.coursereg.domain.Student;
 import com.example.coursereg.repo.CourseRepository;
 import com.example.coursereg.repo.EnrollmentRepository;

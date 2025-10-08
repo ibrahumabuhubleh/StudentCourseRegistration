@@ -6,33 +6,32 @@ import jakarta.persistence.*;
 @Table(name = "student")
 public class Student {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // required – DB column is NOT NULL
+    // Keep columns to match your existing DB schema
     @Column(nullable = false)
-    private String fullName;
+    private String name;        // short name (e.g., "Alice")
 
-    // optional short name / nickname
-    private String name;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;    // full name (e.g., "Alice Johnson")
 
-    // --- getters/setters ---
-    public Long getId() {
-        return id;
-    }
+    private String major;       // optional
 
-    public String getFullName() {
-        return fullName;
-    }
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
+    public Student() {}
+    public Student(String name, String fullName, String major) {
         this.name = name;
+        this.fullName = fullName;
+        this.major = major;
     }
+
+    public Long getId() { return id; }
+    public String getName() { return name; }
+    public String getFullName() { return fullName; }
+    public String getMajor() { return major; }
+
+    public void setId(Long id) { this.id = id; }
+    public void setName(String name) { this.name = name; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+    public void setMajor(String major) { this.major = major; }
 }

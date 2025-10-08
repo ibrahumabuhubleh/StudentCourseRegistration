@@ -1,4 +1,12 @@
 spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
   datasource:
     url: jdbc:postgresql://localhost:5433/coursereg
     username: dev
@@ -9,10 +17,10 @@ spring:
     show-sql: true
   flyway:
     enabled: false
+  security:
+    user:
+      name: admin
+      password: admin123
 
 server:
   port: 8080
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui/index.html
