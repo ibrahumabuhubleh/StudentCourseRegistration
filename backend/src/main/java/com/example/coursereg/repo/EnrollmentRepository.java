@@ -2,6 +2,7 @@ package com.example.coursereg.repo;
 
 import com.example.coursereg.domain.Course;
 import com.example.coursereg.domain.Student;
+import com.example.coursereg.domain.Enrollment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

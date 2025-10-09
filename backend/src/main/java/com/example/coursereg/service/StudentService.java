@@ -2,6 +2,7 @@ package com.example.coursereg.service;
 
 import com.example.coursereg.domain.Course;
 import com.example.coursereg.domain.Student;
+import com.example.coursereg.domain.Enrollment;
 import com.example.coursereg.repo.CourseRepository;
 import com.example.coursereg.repo.EnrollmentRepository;
 import com.example.coursereg.repo.StudentRepository;
@@ -26,7 +27,7 @@ public class StudentService {
     }
 
     public Student create(Student s) {
-        // fullName is required at DB level; you can add validation if you want
+        // minimal: DB constraints should enforce required fields (e.g., fullName)
         return students.save(s);
     }
 
@@ -45,9 +46,7 @@ public class StudentService {
             throw new IllegalStateException("Student already enrolled in this course");
         }
 
-        Enrollment e = new Enrollment();
-        e.setStudent(student);
-        e.setCourse(course);
+        Enrollment e = new Enrollment(student, course);
         return enrollments.save(e);
     }
 
