@@ -19,14 +19,14 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-3">
           <img
             src="/logo.jpg"
-            alt="Crimson Academy"
+            alt="Learnify"
             className="h-9 w-9 rounded-lg object-cover ring-1 ring-neutral-100"
           />
           <div className="flex flex-col leading-tight">
             <span className="text-lg font-bold" style={{ fontFamily: '"Crimson Text", Georgia, serif' }}>
-              Crimson Academy
+              Learnify
             </span>
-            <span className="text-xs text-neutral-600 -mt-0.5">Student Management</span>
+            <span className="text-xs text-neutral-600 -mt-0.5">Empower Your Learning Journey</span>
           </div>
         </Link>
 
@@ -50,7 +50,7 @@ export default function Navbar() {
           })}
 
           <div className="ml-2 flex items-center gap-2">
-            <Link to="/register" className="btn-ghost">Sign up</Link>
+            <Link to="/signup" className="btn-ghost">Sign up</Link>
             <button className="btn-primary">Sign in</button>
           </div>
         </nav>
