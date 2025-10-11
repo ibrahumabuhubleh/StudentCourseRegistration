@@ -1,18 +1,21 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 
-export default function App(){
+export default function App() {
   return (
-    <div style={{fontFamily:'system-ui', maxWidth: 960, margin:'2rem auto'}}>
-      <header style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-        <h1>CourseReg</h1>
-        <nav style={{display:'flex', gap:12}}>
-          <Link to="/">Catalog</Link>
-          <Link to="/health">API Health</Link>
-        </nav>
-      </header>
-      <Outlet/>
-      <footer style={{marginTop:32, fontSize:12, opacity:0.6}}>React + Spring Boot Skeleton</footer>
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+      <Navbar />
+
+      <main className="flex-1 container-page py-8 fade-in">
+        <Outlet />
+      </main>
+
+      <footer className="border-t bg-white mt-10">
+        <div className="container-page py-4 text-xs text-slate-500 text-center">
+          React + Vite + Tailwind · Student Management System (Frontend Only)
+        </div>
+      </footer>
     </div>
   )
 }

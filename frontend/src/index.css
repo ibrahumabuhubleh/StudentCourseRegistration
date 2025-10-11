@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Brand & Theme Tokens --- */
+:root {
+  --brand: 37 99% 53%;         /* blue-500 */
+  --ink: 222 47% 11%;          /* slate-900 */
+  --muted: 215 16% 47%;        /* slate-500 */
+  --bg: 210 40% 98%;           /* slate-50 */
+  color-scheme: light;
+}
+
+/* Optional: modern system font stack or swap for Inter if you prefer */
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans",
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  h1, h2, h3 {
+    @apply tracking-tight text-slate-900;
+  }
+}
+
+/* --- Reusable UI Primitives --- */
+@layer components {
+  .container-page {
+    @apply mx-auto max-w-6xl px-4;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-white font-medium
+           hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100;
+  }
+  .input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2
+           focus:outline-none focus:ring-2 focus:ring-blue-400;
+  }
+  .label {
+    @apply block text-sm font-medium text-slate-700 mb-1;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow border p-6;
+  }
+  .table {
+    @apply w-full border-collapse text-sm;
+  }
+  .th {
+    @apply text-left text-slate-500 font-medium py-2;
+  }
+  .td {
+    @apply py-2 border-t;
+  }
+}
+
+/* --- Utilities --- */
+@layer utilities {
+  .fade-in {
+    animation: fade-in .25s ease-out both;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
