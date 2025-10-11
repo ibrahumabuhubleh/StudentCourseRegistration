@@ -10,6 +10,8 @@ import Students from './pages/Students';
 import Enrollments from './pages/Enrollments';
 import Register from './pages/Register';
 import NotFound from './pages/NotFound';
+import Teacher from './pages/Teacher';
+import Student from './pages/Student';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -19,6 +21,8 @@ const router = createBrowserRouter([
             { path: 'courses', element: _jsx(Courses, {}) },
             { path: 'students', element: _jsx(Students, {}) },
             { path: 'enrollments', element: _jsx(Enrollments, {}) },
+            { path: 'teacher', element: _jsx(Teacher, {}) },
+            { path: 'student', element: _jsx(Student, {}) },
             { path: 'register', element: _jsx(Register, {}) },
             { path: '*', element: _jsx(NotFound, {}) },
         ],
