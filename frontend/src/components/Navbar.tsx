@@ -2,11 +2,12 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const tabs = [
-  { to: '/', label: 'Dashboard' },
+  { to: '/', label: 'Home' },
   { to: '/courses', label: 'Courses' },
   { to: '/students', label: 'Students' },
   { to: '/enrollments', label: 'Enrollments' },
-  { to: '/register', label: 'Register' },
+  { to: '/teacher', label: 'Teacher' },
+  { to: '/student', label: 'Student' },
 ]
 
 export default function Navbar() {
@@ -14,13 +15,22 @@ export default function Navbar() {
 
   return (
     <header className="bg-white/90 backdrop-blur border-b sticky top-0 z-20">
-      <div className="container-page h-14 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-xl bg-blue-600"></div>
-          <span className="font-semibold">Student Management</span>
-        </div>
+      <div className="container-page h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="/logo.jpg"
+            alt="Learnify"
+            className="h-9 w-9 rounded-lg object-cover ring-1 ring-neutral-100"
+          />
+          <div className="flex flex-col leading-tight">
+            <span className="text-lg font-bold" style={{ fontFamily: '"Crimson Text", Georgia, serif' }}>
+              Learnify
+            </span>
+            <span className="text-xs text-neutral-600 -mt-0.5">Empower Your Learning Journey</span>
+          </div>
+        </Link>
 
-        <nav className="flex gap-1">
+        <nav className="flex items-center gap-1">
           {tabs.map(t => {
             const active = pathname === t.to
             return (
@@ -28,16 +38,21 @@ export default function Navbar() {
                 key={t.to}
                 to={t.to}
                 className={
-                  'px-3 py-2 rounded-lg text-sm transition-colors ' +
+                  'px-3 py-2 rounded-xl text-sm transition-colors ' +
                   (active
-                    ? 'bg-slate-200 font-semibold'
-                    : 'text-slate-700 hover:bg-slate-100')
+                    ? 'bg-neutral-100 text-neutral-900 font-semibold'
+                    : 'text-neutral-900 hover:bg-neutral-100')
                 }
               >
                 {t.label}
               </Link>
             )
           })}
+
+          <div className="ml-2 flex items-center gap-2">
+            <Link to="/signup" className="btn-ghost">Sign up</Link>
+            <button className="btn-primary">Sign in</button>
+          </div>
         </nav>
       </div>
     </header>
