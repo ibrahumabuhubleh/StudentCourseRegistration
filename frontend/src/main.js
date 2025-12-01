@@ -12,20 +12,22 @@ import Teacher from './pages/Teacher';
 import Student from './pages/Student';
 import Register from './pages/Register';
 import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 import NotFound from './pages/NotFound';
 const router = createBrowserRouter([
     {
         path: '/',
         element: _jsx(App, {}),
         children: [
-            { index: true, element: _jsx(Home, {}) }, // new landing page
+            { index: true, element: _jsx(Home, {}) },
             { path: 'courses', element: _jsx(Courses, {}) },
             { path: 'students', element: _jsx(Students, {}) },
             { path: 'enrollments', element: _jsx(Enrollments, {}) },
             { path: 'teacher', element: _jsx(Teacher, {}) },
             { path: 'student', element: _jsx(Student, {}) },
-            { path: 'register', element: _jsx(Register, {}) }, // keep if you still want it
-            { path: 'signup', element: _jsx(SignUp, {}) }, // new route
+            { path: 'register', element: _jsx(Register, {}) },
+            { path: 'signup', element: _jsx(SignUp, {}) },
+            { path: 'signin', element: _jsx(SignIn, {}) }, // <— added
             { path: '*', element: _jsx(NotFound, {}) },
         ],
     },
