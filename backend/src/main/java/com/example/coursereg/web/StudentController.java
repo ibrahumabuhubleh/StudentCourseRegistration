@@ -43,6 +43,7 @@ public class StudentController {
     )
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+
     public Student create(@RequestBody CreateStudentRequest req) {
         Student s = new Student();
         s.setFullName(req.fullName());
