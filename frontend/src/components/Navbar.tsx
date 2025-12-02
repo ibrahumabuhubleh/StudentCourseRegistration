@@ -6,12 +6,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo + Brand */}
         <Link to="/" className="flex items-center gap-2">
-          {/* Put your actual logo as /public/logo.png */}
           <img
-            src="logo.jpg"
+            src="/logo.jpg"
             className="h-8 w-auto object-contain"
+            alt="Lernify Logo"
           />
-          <span className="text-2xl font-extrabold tracking-tight text-red-700">
+
+          {/* Updated font only (Playfair Display) */}
+          <span
+            className="text-2xl font-extrabold tracking-tight text-red-700"
+            style={{ fontFamily: "Playfair Display", letterSpacing: "-0.5px" }}
+          >
             Lernify
           </span>
         </Link>
@@ -57,7 +62,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile nav - simple version */}
+        {/* Mobile nav */}
         <div className="md:hidden text-xs font-medium flex flex-col items-end gap-1">
           <Link to="/courses">Courses</Link>
           <Link to="/student/dashboard" className="text-red-700">
