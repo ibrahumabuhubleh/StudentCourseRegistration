@@ -1,60 +1,78 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-
-const tabs = [
-  { to: '/', label: 'Home' },
-  { to: '/courses', label: 'Courses' },
-  { to: '/students', label: 'Students' },
-  { to: '/enrollments', label: 'Enrollments' },
-  { to: '/teacher', label: 'Teacher' },
-  { to: '/student', label: 'Student' },
-]
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  const { pathname } = useLocation()
-
   return (
-    <header className="bg-white/90 backdrop-blur border-b sticky top-0 z-20">
-      <div className="container-page h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
+    <nav className="bg-white border-b shadow-sm sticky top-0 z-40">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        {/* Logo + Brand */}
+        <Link to="/" className="flex items-center gap-2">
           <img
             src="/logo.jpg"
-            alt="Learnify"
-            className="h-9 w-9 rounded-lg object-cover ring-1 ring-neutral-100"
+            className="h-8 w-auto object-contain"
+            alt="Lernify Logo"
           />
-          <div className="flex flex-col leading-tight">
-            <span className="text-lg font-bold" style={{ fontFamily: '"Crimson Text", Georgia, serif' }}>
-              Learnify
-            </span>
-            <span className="text-xs text-neutral-600 -mt-0.5">Empower Your Learning Journey</span>
-          </div>
+
+          {/* Updated font only (Playfair Display) */}
+          <span
+            className="text-2xl font-extrabold tracking-tight text-red-700"
+            style={{ fontFamily: "Playfair Display", letterSpacing: "-0.5px" }}
+          >
+            Lernify
+          </span>
         </Link>
 
-        <nav className="flex items-center gap-1">
-          {tabs.map(t => {
-            const active = pathname === t.to
-            return (
-              <Link
-                key={t.to}
-                to={t.to}
-                className={
-                  'px-3 py-2 rounded-xl text-sm transition-colors ' +
-                  (active
-                    ? 'bg-neutral-100 text-neutral-900 font-semibold'
-                    : 'text-neutral-900 hover:bg-neutral-100')
-                }
-              >
-                {t.label}
-              </Link>
-            )
-          })}
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+          <Link to="/courses" className="hover:text-red-700">
+            Courses
+          </Link>
+          <Link to="/categories" className="hover:text-red-700">
+            Categories
+          </Link>
+          <Link to="/instructors" className="hover:text-red-700">
+            Instructors
+          </Link>
 
-          <div className="ml-2 flex items-center gap-2">
-            <Link to="/signup" className="btn-ghost">Sign up</Link>
-            <button className="btn-primary">Sign in</button>
-          </div>
-        </nav>
+          {/* Portals */}
+          <Link
+            to="/student/dashboard"
+            className="text-red-700 hover:underline"
+          >
+            Student Portal
+          </Link>
+          <Link
+            to="/teacher/dashboard"
+            className="text-red-700 hover:underline"
+          >
+            Teacher Portal
+          </Link>
+
+          {/* Auth */}
+          <Link
+            to="/login"
+            className="px-4 py-2 border rounded-lg hover:bg-gray-100"
+          >
+            Log in
+          </Link>
+          <Link
+            to="/signup"
+            className="px-4 py-2 bg-red-700 text-white rounded-lg hover:bg-red-800"
+          >
+            Sign up
+          </Link>
+        </div>
+
+        {/* Mobile nav */}
+        <div className="md:hidden text-xs font-medium flex flex-col items-end gap-1">
+          <Link to="/courses">Courses</Link>
+          <Link to="/student/dashboard" className="text-red-700">
+            Student
+          </Link>
+          <Link to="/teacher/dashboard" className="text-red-700">
+            Teacher
+          </Link>
+        </div>
       </div>
-    </header>
-  )
+    </nav>
+  );
 }

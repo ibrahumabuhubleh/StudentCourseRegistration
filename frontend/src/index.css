@@ -2,57 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ------- Global base (Harvard style) ------- */
-@layer base {
-  html, body, #root { height: 100%; }
-  body {
-    @apply bg-neutral-50 text-neutral-900 antialiased;
-    font-family: "Source Sans Pro", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  }
-  h1, h2, h3, h4 {
-    font-family: "Crimson Text", Georgia, serif;
-    @apply tracking-tight text-neutral-900;
-  }
-
-  /* Use plain CSS for links instead of @apply */
-  a { color: #A51C30; }
-  a:hover { color: #820B22; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f9fafb;
+  font-family: 'Inter', sans-serif;
 }
 
-/* ------- Reusable components ------- */
-@layer components {
-  .container-page { @apply mx-auto max-w-6xl px-4; }
-
-  .btn-primary {
-    @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-white font-semibold
-           transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
-    background-color: #A51C30;
-  }
-  .btn-primary:hover { background-color: #820B22; }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-xl px-3 py-2 text-neutral-900 hover:bg-neutral-100;
-  }
-
-  .input {
-    @apply w-full rounded-xl border border-neutral-100 bg-white px-3 py-2 shadow-sm
-           focus:outline-none focus:ring-2;
-    /* ring-brand fallback */
-    --tw-ring-color: rgba(165, 28, 48, 0.5);
-  }
-
-  .label { @apply block text-sm font-semibold text-neutral-900 mb-1; }
-
-  /* ⬇️ Changed shadow-card -> shadow-md (built-in) */
-  .card { @apply bg-white rounded-2xl shadow-md border p-6; }
-
-  .table { @apply w-full border-collapse text-sm; }
-  .th { @apply text-left text-neutral-600 font-semibold py-2; }
-  .td { @apply py-2 border-t; }
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-/* ------- Small motion polish ------- */
-@layer utilities {
-  .fade-in { animation: fade-in .25s ease-out both; }
-  @keyframes fade-in { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: translateY(0) } }
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
+
+
